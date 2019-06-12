@@ -24,8 +24,8 @@ from donkeycar.parts.datastore import TubGroup, TubWriter
 from donkeycar.parts.web_controller import LocalWebController
 from donkeycar.parts.clock import Timestamp
 from donkeycar.parts.transform import Lambda
-from donkeycar.parts.model import Eyes
-from donkeycar.parts.model import Brains
+from donkeycar.parts.Eyes import Eyes
+from donkeycar.parts.Brains import Brains
 
 
 def drive(cfg, model_path=None, use_chaos=False):
