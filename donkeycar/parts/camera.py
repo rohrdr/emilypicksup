@@ -12,17 +12,19 @@ class BaseCamera:
 
 
 class PiCamera(BaseCamera):
-    def __init__(self, resolution=(120, 160), framerate=20):
+    def __init__(self, resolution=(120, 160), framerate=20, *args, **kwargs):
         from picamera.array import PiRGBArray
         from picamera import PiCamera
         resolution = (resolution[1], resolution[0])
         # initialize the camera and stream
-        self.camera = PiCamera()  # PiCamera gets resolution (height, width)
+        self.camera = PiCamera(*args, **kwargs)  # PiCamera gets resolution (height, width)
         self.camera.resolution = resolution
         self.camera.framerate = framerate
         self.rawCapture = PiRGBArray(self.camera, size=resolution)
         self.stream = self.camera.capture_continuous(self.rawCapture,
-                                                     format="rgb",
+                                                     # format should be bgr for opencv
+                                                     format="bgr",
+                                                     #format="rgb",
                                                      use_video_port=True)
 
         # initialize the frame and the variable used to indicate
