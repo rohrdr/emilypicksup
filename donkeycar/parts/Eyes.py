@@ -6,16 +6,11 @@ import os
 
 
 class Eyes:
-    
-    
 
-    def __init__(self,config,weights):
+    def __init__(self, config, weights):
         # need to initialize some stuff
-        
-        
-        
-        self.config=config
-        self.weights=weights
+        self.config = config
+        self.weights = weights
         
         self.net = cv.dnn.readNetFromDarknet(self.config, self.weights)
         self.net.setPreferableBackend(cv.dnn.DNN_BACKEND_OPENCV)
@@ -25,20 +20,12 @@ class Eyes:
 
     def run(self, image):
 
-        bbox = self.inference(self.net,
-                              image)
+        bbox = self.inference(self.net, image)
 
         return bbox
 
-
-
-    
-    
-
-
-
     def inference(self,
-                  net,
+                net,
                 frame,
                 inpWidth = 480,
                 inpHeight = 480,
@@ -54,12 +41,7 @@ class Eyes:
             layersNames = net.getLayerNames()
     # Get the names of the output layers, i.e. the layers with unconnected outputs
             return [layersNames[i[0] - 1] for i in net.getUnconnectedOutLayers()]
-        
-            
 
-            
-            
-        
         def postprocess(frame, outs):
             
             #Helper function to process the output of Yolo
@@ -114,18 +96,12 @@ class Eyes:
                 center_x= (left+width/2) 
                 center_y= (top+height/2) 
                 ans.append([classIds[i],confidences[i],center_x/frameWidth,center_y/frameHeight,width/frameWidth,height/frameHeight])
-                
-                
-                
-                
-                
-                
-                
-        #We initializ with an empty list that we will returm at the end
+
+#       We initialize with an empty list that we will returm at the end
 
         ans=[]
         
-        #We convert the image we got into a blob with the good dimensions
+#       We convert the image we got into a blob with the good dimensions
 
         blob = cv.dnn.blobFromImage(image, 1/255, (inpWidth, inpHeight), [0,0,0], 1, crop=False)
         
@@ -139,15 +115,5 @@ class Eyes:
     
         # Remove the bounding boxes with low confidence, add the resulting boxes to ans
         postprocess(frame, outs)  
-        
-        print(ans)
-    
-    
+
         return ans
-    
-    
-
-
-
-
-    
