@@ -14,7 +14,8 @@ class Brains:
         emily = True
         emil = False
 
-        angle = self.path_planning(bbox)
+#        angle = self.path_planning(bbox)
+        angle = 0.0
 
         return angle, throttle, emily, emil
 
