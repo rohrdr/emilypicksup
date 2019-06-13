@@ -283,6 +283,9 @@ if __name__ == '__main__':
     if args['drive']:
         drive(cfg, model_path=args['--model'], use_chaos=args['--chaos'])
 
+    elif args['pickup']:
+        pickup(cfg, model_path=args['--model'], use_chaos=args['--chaos'])
+
     elif args['train']:
         tub = args['--tub']
         new_model_path = args['--model']
