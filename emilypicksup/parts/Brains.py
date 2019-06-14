@@ -39,7 +39,11 @@ class Brains:
         #
         # angle = diatoangle(diameter)
 
-        angle = np.sin(self.list.pop()*0.01)
+        cyc = self.list.pop()
+
+        print('cycle = ', cyc)
+
+        angle = np.sin(cyc*0.01)
 
         return angle
 
