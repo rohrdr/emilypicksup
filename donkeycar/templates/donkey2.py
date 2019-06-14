@@ -17,15 +17,14 @@ from docopt import docopt
 import donkeycar as dk
 
 from donkeycar.parts.camera import PiCamera
-from donkeycar.parts.transform import Lambda
 from donkeycar.parts.keras import KerasLinear
 from donkeycar.parts.actuator import PCA9685, PWMSteering, PWMThrottle
 from donkeycar.parts.datastore import TubGroup, TubWriter
 from donkeycar.parts.web_controller import LocalWebController
 from donkeycar.parts.clock import Timestamp
 from donkeycar.parts.transform import Lambda
-from donkeycar.parts.Eyes import Eyes
-from donkeycar.parts.Brains import Brains
+from emilypicksup.parts.Eyes import Eyes
+from emilypicksup.parts.Brains import Brains
 
 
 def drive(cfg, model_path=None, use_chaos=False):
