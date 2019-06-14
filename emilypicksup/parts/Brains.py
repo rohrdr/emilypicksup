@@ -17,7 +17,12 @@ class Brains:
         emily = True
         emil = False
 
-        angle = self.path_planning(bbox)
+        cyc = self.list.pop()
+        angle = np.sin(cyc*0.01)
+        angle = cyc%2
+        print('cycle = ', cyc, ' angle = ', angle)
+
+#        angle = self.path_planning(bbox)
 #        angle = 0.0
 
         return angle, throttle, emily, emil
@@ -39,9 +44,7 @@ class Brains:
         #
         # angle = diatoangle(diameter)
 
-        cyc = self.list.pop()
-        angle = np.sin(cyc*0.01)
-        print('cycle = ', cyc, ' angle = ', angle)
+
 
         return angle
 
