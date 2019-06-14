@@ -14,8 +14,8 @@ class Brains:
         emily = True
         emil = False
 
-#        angle = self.path_planning(bbox)
-        angle = 0.0
+        angle = self.path_planning(bbox)
+#        angle = 0.0
 
         return angle, throttle, emily, emil
 
@@ -26,6 +26,9 @@ class Brains:
 
         xpic = bbox[idx, 1]
         ypic = bbox[idx, 2]
+
+        xpic = 0.0
+        ypic = 50.0
 
         x, y = self.pictoreal(xpic, ypic)
 
@@ -38,7 +41,7 @@ class Brains:
 
     def pictoreal(self, xpic, ypic):
 
-        return x, y
+        return xpic, ypic
 
 
     def diatoangle(self, diameter):
