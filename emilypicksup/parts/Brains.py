@@ -5,12 +5,15 @@ class Brains:
     def __init__(self):
         # need to initialize some stuff
 
+        self.list = list(range(100000))
+        self.list.reverse()
+
         return
 
 
     def run(self, bbox):
 
-        throttle = 1.0
+        throttle = 0.35
         emily = True
         emil = False
 
@@ -22,19 +25,21 @@ class Brains:
 
     def path_planning(self, bbox):
 
-        idx = np.argmax(bbox[:,0])
+        # idx = np.argmax(bbox[:,0])
+        #
+        # xpic = bbox[idx, 1]
+        # ypic = bbox[idx, 2]
+        #
+        # xpic = 0.0
+        # ypic = 50.0
+        #
+        # x, y = self.pictoreal(xpic, ypic)
+        #
+        # diameter = (x * x + y * y) / y
+        #
+        # angle = diatoangle(diameter)
 
-        xpic = bbox[idx, 1]
-        ypic = bbox[idx, 2]
-
-        xpic = 0.0
-        ypic = 50.0
-
-        x, y = self.pictoreal(xpic, ypic)
-
-        diameter = (x * x + y * y) / y
-
-        angle = diatoangle(diameter)
+        angle = np.sin(self.list.pop()*0.01)
 
         return angle
 
