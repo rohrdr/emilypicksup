@@ -11,6 +11,7 @@ x_default = np.array([
 [1592,	2148],[2436,	1440],[2056,	1848],[1848,	2084],[1712,	2240],[1624,	2344],[1696,	2264],[1736,	2224],
 [1812,	2160],[1928,	2220],[2064,	2132],[1964,	2268],[2140,	2156],[2480,	2088],[2232,	2240],[2064,	2348],
 [2180,	2248],[2340,	2156],[2404,	2200],[2356,	2208],[2240,	2252],[2204,	2292],]).astype(np.float64)
+x_default = 2588.0 - x_default[:,1]
 
 zy_default = np.array([
 [58],[54],[60],[50],[60],[58],[48],[54],
@@ -71,7 +72,7 @@ class Brains:
         ypic = bbox[idx, 2]
         x, y = self.pictoreal(xpic, ypic)
         diameter = (x * x + y * y) / y
-        angle = selfdiatoangle(diameter)
+        angle = self.diatoangle(diameter)
 
         return angle
 
