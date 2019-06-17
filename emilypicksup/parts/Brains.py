@@ -1,4 +1,5 @@
 import numpy as np
+from scipy import interpolate 
 
 x_default = np.array([
 [88,	2260],[20,	2220],[252,	2336],[76,	2228],[316,	2284],[288,	2264],[120,	2148],[328,	2224],
@@ -41,17 +42,17 @@ class Brains:
     def __init__(self, **kwargs):
         # need to initialize some stuff
 
-        try kwargs['pic_map']:
+        try:
             x = kwargs['x']
             zx = kwargs['zx']
             zy = kwargs['zy']
-        else:
+        except:
             x = x_default
             zx = zx_default
             zy = zy_default
 
-        self.pic_mapx = np.interpolate.CloughTocher2DInterpolator(x, zx)
-        self.pic_mapy = np.interpolate.CloughTocher2DInterpolator(x, zy)
+        self.pic_mapx = interpolate.CloughTocher2DInterpolator(x, zx)
+        self.pic_mapy = interpolate.CloughTocher2DInterpolator(x, zy)
 
         return
 
