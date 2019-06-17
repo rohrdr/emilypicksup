@@ -77,7 +77,7 @@ class Brains:
 
     def pictoreal(self, xpic, ypic):
 
-        xy = np.array(xpic, ypic)
+        xy = np.array([xpic, ypic])
         x = self.pic_mapx(xy)
         y = self.pic_mapy(xy)
 
