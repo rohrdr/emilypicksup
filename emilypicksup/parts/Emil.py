@@ -4,7 +4,7 @@ class Emil:
 
     def __init__(self):
         # need to initialize some stuff
-
+        pass
         return
 
     def run(self, emil, bbox):

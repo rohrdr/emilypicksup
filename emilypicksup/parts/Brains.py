@@ -41,7 +41,7 @@ class Brains:
     def __init__(self, **kwargs):
         # need to initialize some stuff
 
-        if kwargs['pic_map']:
+        try kwargs['pic_map']:
             x = kwargs['x']
             zx = kwargs['zx']
             zy = kwargs['zy']
